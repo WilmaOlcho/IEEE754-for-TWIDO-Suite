@@ -1,7 +1,7 @@
 # IEEE754-for-TWIDO-Suite
 When your PLC does not support foating point numbers, you can force it to calculate them.
 
-This code can be imported in TWIDO Suite, it converts DWORD values into IEEE754 floating point format in subrountine.
+This code can be imported in TWIDO Suite, it converts DWORD values into IEEE754 floating point single precision format in subrountine.
 It can also adding, substracting, multiplying and dividing these values, it is possible to convert IEEE754 back into DWORD and enyoy calculated value.
 
 This program uses memmory addresses described below:
