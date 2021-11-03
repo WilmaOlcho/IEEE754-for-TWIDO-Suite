@@ -42,11 +42,11 @@ It can also adding, substracting, multiplying and dividing these values, it is p
 |L31| label for internal loop|
 |L32| label for internal loop|
 
-DWORD values are 2's complement signed integers
-Adding negative numbers into values causes substraction
+## DWORD values are 2's complement signed integers.
+## Adding negative numbers into values causes substraction.
 
 ## Examples:
-'''STL
+```
 (*Area of the circle*)
 LD 1
 [%MD984 := 25] (*or any other value, variable etc. for input A as radius*)
@@ -69,4 +69,4 @@ SR2 (*Convert IEEE754 to signed DWORD*)
 LD 1
 [%MD100 := %MD986%] (*copy result into some variable, use it in program, display on HMI etc.*)
 (*Now the %MD100 have value of area of the circle with radius described at first*)
-'''
+```
