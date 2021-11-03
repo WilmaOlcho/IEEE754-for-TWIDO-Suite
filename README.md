@@ -22,7 +22,7 @@ DWORD values are 2's complement signed integers
 Adding negative numbers into values causes substraction
 
 ## Examples:
-''' (*Area of the circle*)
+""" (*Area of the circle*)
 LD 1
 [%MD984 := 25] (*or any other value, variable etc. for input A as radius*)
 LD 1
@@ -44,4 +44,4 @@ SR2 (*Convert IEEE754 to signed DWORD*)
 LD 1
 [%MD100 := %MD986%] (*copy result into some variable, use it in program, display on HMI etc.*)
 (*Now the %MD100 have value of area of the circle with radius described at first*)
-'''
+"""
