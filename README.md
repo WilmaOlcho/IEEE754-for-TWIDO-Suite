@@ -42,8 +42,9 @@ It can also adding, substracting, multiplying and dividing these values, it is p
 |L31| label for internal loop|
 |L32| label for internal loop|
 
-## DWORD values are 2's complement signed integers.
-## Adding negative numbers into values causes substraction.
+## Important information:
+ DWORD values are 2's complement signed integers.
+ Adding negative numbers into values causes substraction.
 
 ## Examples:
 ```
