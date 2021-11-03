@@ -1,10 +1,10 @@
 # IEEE754-for-TWIDO-Suite
-When your PLC does not support foating point numbers, you can force it to calculate them.
+## When your PLC does not support foating point numbers, you can force it to calculate them.
 
 This code can be imported in TWIDO Suite, it converts DWORD values into IEEE754 floating point single precision format in subrountine.
 It can also adding, substracting, multiplying and dividing these values, it is possible to convert IEEE754 back into DWORD and enyoy calculated value.
 
-This program uses memmory addresses described below:
+### This program uses memmory addresses described below:
 MD984 as input A
 MD986 as output
 MD988 as input B
@@ -21,8 +21,8 @@ L5,6,10,11,14,15,16,17,18,20,21,22,23,24,30,31,32 labels for internal loops
 DWORD values are 2's complement signed integers
 Adding negative numbers into values causes substraction
 
-Examples:
- (*Area of the circle*)
+## Examples:
+''' (*Area of the circle*)
 LD 1
 [%MD984 := 25] (*or any other value, variable etc. for input A as radius*)
 LD 1
@@ -44,4 +44,4 @@ SR2 (*Convert IEEE754 to signed DWORD*)
 LD 1
 [%MD100 := %MD986%] (*copy result into some variable, use it in program, display on HMI etc.*)
 (*Now the %MD100 have value of area of the circle with radius described at first*)
-
+'''
