@@ -17,7 +17,7 @@ AND   %MW991:X15
 ST    %M250                   (* SIGN BIT*)
 LD    1
 [ %MW992 := 31 ]
-%L10:
+%L27:
 LD    1                       (* HSB LOADING*)
 ANDN  %MW991:X15
 [ %MW992 := %MW992 - 1 ]      (* IF MSB IS 0, SHIFT EVERYTHING TO RIGHT AND DECREASE EXPONENT*)
@@ -29,10 +29,10 @@ R     %S17
 LD    1
 ANDN  %MW991:X15
 AND   [ %MW992 >= 0 ]         (* AGAIN IF THERE IS STILL NO 1 AT THE END*)
-JMPC  %L10
+JMPC  %L27
 LD    1
 [ %MW993 := 8 ]
-%L11:                         (* SHIFTING VALUE INTO RIGHT POSITION WITH LOSS OF SOME LSBIS*)
+%L26:                         (* SHIFTING VALUE INTO RIGHT POSITION WITH LOSS OF SOME LSBIS*)
 LD    1
 [ %MW990 := SHR( %MW990, 1 ) ]
 [ %MW993 := %MW993 - 1 ]
@@ -41,7 +41,7 @@ LD    %S17
 [ %MW990 := %MW990 OR #8000 ]
 R     %S17
 LD    [ %MW993 > 0 ]
-JMPC  %L11
+JMPC  %L26
 LD    1
 [ %MW991 := %MW991 AND #7F ]
 LD    1
@@ -81,7 +81,7 @@ NOP         (* %MW992 IS NOW CLEAR EXPONENT!*)
 LD    1
 [ %MW993 := 0 ]
 [ %MW994 := 0 ]
-%L15:
+%L19:
 LD    [ %MW992 > 24 ]
 [ %MW991 := SHL( %MW991, 1 ) ] (* SHIFTING VALUES TO EXPONENT POSITION*)
 [ %MW990 := SHL( %MW990, 1 ) ]
@@ -90,10 +90,10 @@ AND   %S17
 [ %MW991 := %MW991 OR #1 ]    (* ADDING CARRY BIT INTO TEMPORARY*)
 LD    [ %MW992 > 24 ]
 [ %MW992 := %MW992 - 1 ]
-JMPC  %L15
+JMPC  %L19
 LD    1
 [ %MW993 := 23 - %MW992 ]
-%L14:
+%L25:
 LD    [ %MW993 > 0 ]
 [ %MW990 := SHR( %MW990, 1 ) ] (* SHIFTING VALUES TO EXPONENT POSITION*)
 [ %MW991 := SHR( %MW991, 1 ) ]
@@ -101,7 +101,7 @@ AND   %S17
 [ %MW990 := %MW990 OR #8000 ] (* ADDING CARRY BIT INTO TEMPORARY*)
 LD    [ %MW993 > 0 ]
 [ %MW993 := %MW993 - 1 ]
-JMPC  %L14
+JMPC  %L25
 LD    %M250
 [ %MW990 := NOT( %MW990 ) ]
 [ %MW991 := NOT( %MW991 ) ]
@@ -401,7 +401,7 @@ LD    1
 [ %MW993 := %MW993 OR #80 ]
 [ %MD1000 := 0 ]              (* RESULT MANTISA STORE*)
 [ %MW997 := 0 ]               (* PLACE OF HBIT IN THE STORE*)
-%L5:
+%L29:
 LD    1
 [ %MD998 := %MD990 / %MD992 ] (* SIMPLE DIVISION*)
 [ %MD1002 := %MD998 * %MD992 ] (* MULTIPLY RESULT WITH DIVISOR*)
@@ -424,8 +424,8 @@ LD    1
 [ %MW997 := %MW997 + 1 ]      (* INCREASE STORE HBIT POSITION*)
 LD    [ %MD990 <> 0 ]         (* IF THERE IS STILL SOMETHING TO DIVIDE*)
 AND   [ %MW997 < 23 ]         (* AND IF THERE ISNT TOO MUCH DIVISIONS*)
-JMPC  %L5                     (* DO IT AGAIN*)
-%L6:
+JMPC  %L29                     (* DO IT AGAIN*)
+%L28:
 LD    [ %MW997 < 24 ]
 [ %MW1001 := SHL( %MW1001, 1 ) ]
 [ %MW1000 := SHL( %MW1000, 1 ) ]
@@ -435,7 +435,7 @@ R     %S17
 LD    1
 [ %MW997 := %MW997 + 1 ]
 LD    [ %MW997 < 24 ]
-JMPC  %L6
+JMPC  %L28
 NOP                           (* MD1000 IS NOW OUT DIVIDED MANTISA*)
 NOP
 LD    1

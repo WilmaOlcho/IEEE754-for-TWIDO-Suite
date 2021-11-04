@@ -6,41 +6,20 @@ It can also adding, substracting, multiplying and dividing these values, it is p
 
 ### This program uses memmory addresses described below:
 |address|description|
-|-----|------------------------------------------------------------------------------------------|
+|-----|-------------|
 |MD984|input A|
 |MD986|output|
 |MD988|input B|
-|MD990|internal variable|
-|MD1010|internal variable|
+|MD990-MD1010|internal variable|
 |S17|ALU carrying bit|
-|M250|internal bit settings|
-|M251|internal bit settings|
-|M252|internal bit settings|
-|M253|internal bit settings|
-|M254|internal bit settings|
-|M255|internal bit settings|
+|M250-M255|internal bit settings|
 |SR1|converting DWORD into IEEE754 subrountine|
 |SR2|converting IEEE754 into DWORD subrountine|
 |SR3|Multiplication IEEE754 subrountine|
 |SR4|Addition and Substraction IEEE754 subrountine|
 |SR5|Division IEEE754 subrountine|
-|L5| label for internal loop|
-|L6| label for internal loop|
-|L10| label for internal loop|
-|L11| label for internal loop|
-|L14| label for internal loop|
-|L15| label for internal loop|
-|L16| label for internal loop|
-|L17| label for internal loop|
-|L18| label for internal loop|
-|L20| label for internal loop|
-|L21| label for internal loop|
-|L22| label for internal loop|
-|L23| label for internal loop|
-|L24| label for internal loop|
-|L30| label for internal loop|
-|L31| label for internal loop|
-|L32| label for internal loop|
+|L16-L32| label for internal loop|
+
 
 ## Important information:
  DWORD values are 2's complement signed integers.
